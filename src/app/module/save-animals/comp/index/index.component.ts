@@ -934,7 +934,8 @@ export class IndexComponent implements OnInit {
       let result = this.deforestCoordinates.value
       this.resultSend = this.data.filter((i:any,arr)=>{
         if(i.latGr <= (Number.parseFloat(result.latGr!) + Number.parseFloat(result.zoneGr!)) && i.latGr >= (Number.parseFloat(result.latGr!) - Number.parseFloat(result.zoneGr!)) 
-        && i.lonGr <= (Number.parseFloat(result.lonGr!) + Number.parseFloat(result.zoneGr!)) && i.lonGr >= (Number.parseFloat(result.lonGr!) - Number.parseFloat(result.zoneGr!)))return i
+        && i.lonGr <= (Number.parseFloat(result.lonGr!) + Number.parseFloat(result.zoneGr!)) && i.lonGr >= (Number.parseFloat(result.lonGr!) - Number.parseFloat(result.zoneGr!))
+        && i.latOr == result.latOr && i.lonOr == result.lonOr)return i
         //&& i.latMin <= (Number.parseFloat(result.latMin!) + Number.parseFloat(result.zoneMin!)) && i.latMin >= (Number.parseFloat(result.latMin!) - Number.parseFloat(result.zoneMin!)) 
         //&& i.lonMin <= (Number.parseFloat(result.lonMin!) + Number.parseFloat(result.zoneMin!)) && i.lonMin >= (Number.parseFloat(result.lonMin!) - Number.parseFloat(result.zoneMin!)))
       })
