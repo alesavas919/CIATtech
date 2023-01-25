@@ -1,3 +1,4 @@
+import { IndexComponent } from './comp/index/index.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,12 +10,12 @@ const routes: Routes = [
   },
   {
     path:"index",
-    loadChildren:()=>import("./module/save-animals/save-animals.module").then(m=>m.SaveAnimalsModule)
+    component:IndexComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class SaveAnimalsRoutingModule { }
