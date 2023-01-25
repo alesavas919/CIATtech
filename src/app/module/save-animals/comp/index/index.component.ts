@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -9,12 +9,12 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 export class IndexComponent implements OnInit {
 
   deforestCoordinates = new FormGroup({
-    latGr:new FormControl('',[Validators.required]),
-    latMin:new FormControl('',[Validators.required]),
-    latOr:new FormControl('',[Validators.required]),
-    lonGr:new FormControl('',[Validators.required]),
-    lonMin:new FormControl('',[Validators.required]),
-    lonOr:new FormControl('',[Validators.required]),
+    latGr:new FormControl('',[Validators.required,Validators.max(180)]),
+    latMin:new FormControl('',[Validators.required,Validators.max(60)]),
+    latOr:new FormControl('',[Validators.required,Validators.maxLength(1)]),
+    lonGr:new FormControl('',[Validators.required,Validators.max(180)]),
+    lonMin:new FormControl('',[Validators.required,Validators.max(60)]),
+    lonOr:new FormControl('',[Validators.required,Validators.maxLength(1)]),
     zoneGr:new FormControl(''),
     zoneMin:new FormControl('')
   })
@@ -945,7 +945,12 @@ export class IndexComponent implements OnInit {
         //&& i.lonMin <= (Number.parseFloat(result.lonMin!) + Number.parseFloat(result.zoneMin!)) && i.lonMin >= (Number.parseFloat(result.lonMin!) - Number.parseFloat(result.zoneMin!)))
       })
     }else{
-      console.log("no se hizo nada");
+      Swal.fire({
+        icon: 'error',
+        title: 'Lo Sentimos',
+        text: 'Faltó llenar algunos datos ó existen datos que no cumplen los estandares',
+        footer:'<p>Recuerda que los grados son de <b>0 a 180</b> los minutos de <b>0 a 60</b> y la orientacion <b>N, S, E, O</b> recuerda que el area en grados y en minutos es vacio es igual a <b>0</b></p>'
+      })
     }
   }
 

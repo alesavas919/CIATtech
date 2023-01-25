@@ -1,40 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Cuidado Animal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        
+        <form class="d-flex">
+          
+        </form>
+      </div>
+    </div>
+</nav>
 <div class="content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Cuidado Animal</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            
-            <form class="d-flex">
-              
-            </form>
-          </div>
-        </div>
-    </nav>
     <div class="divider">
         <div class="defo">
             <h1>Agregar Coordenada</h1>
             <p>Las coordenadas son adecuadas</p>
             <form action="" class="form" [formGroup]="deforestCoordinates">
                 <p>Ingresar latitud</p>
-                <input type="text" formControlName="latGr"  placeholder="Grados">
-                <input type="text" formControlName="latMin" placeholder="Minutos.Segundos">
-                <input type="text" formControlName="latOr"  placeholder="Orientacion">
+                <div class="impGroup">
+                    <input type="text" formControlName="latGr"  placeholder="Grados">
+                    <input type="text" formControlName="latMin" placeholder="Minutos.Segundos">
+                    <input type="text" formControlName="latOr"  placeholder="Orientacion">
+                </div>
                 <p>Ingresar longitud</p>
-                <input type="text" formControlName="lonGr"  placeholder="Grados">
-                <input type="text" formControlName="lonMin" placeholder="Minutos.Segundos">
-                <input type="text" formControlName="lonOr"  placeholder="Orientacion">
+                <div class="impGroup">
+                    <input type="text" formControlName="lonGr"  placeholder="Grados">
+                    <input type="text" formControlName="lonMin" placeholder="Minutos.Segundos">
+                    <input type="text" formControlName="lonOr"  placeholder="Orientacion">
+                </div>
                 <p>Ingresar área de deforestación</p>
-                <input type="text" formControlName="zoneGr"  placeholder="Area Grados 0">
-                <input type="text" formControlName="zoneMin" placeholder="Area Minutos.Segundos 0">
+                <div class="impGroup">
+                    <input type="text" formControlName="zoneGr"  placeholder="Area Grados 0">
+                    <input type="text" formControlName="zoneMin" placeholder="Area Minutos.Segundos 0">
+                </div>
                 <button (click)="find()">Encontrar</button>
             </form>
         </div>
         <div class="animals">
             <h1>Lista de Animales Afectados</h1>
-            <button (click)="testData()">testData</button>
             <table class="table">
             <tr>   
                 <th scope="col">id</th>

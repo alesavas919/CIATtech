@@ -1,0 +1,23 @@
+.content{
+    display: block;
+    margin: 0 auto;
+    width: 1500px;
+    max-width: 100%;
+    .divider{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 30px 10px;
+        margin-top: 50px;
+        .defo{
+            .impGroup{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: 5px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
