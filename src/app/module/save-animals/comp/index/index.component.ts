@@ -15,8 +15,8 @@ export class IndexComponent implements OnInit {
     lonGr:new FormControl('',[Validators.required]),
     lonMin:new FormControl('',[Validators.required]),
     lonOr:new FormControl('',[Validators.required]),
-    zoneGr:new FormControl('',[Validators.required]),
-    zoneMin:new FormControl('',[Validators.required])
+    zoneGr:new FormControl(''),
+    zoneMin:new FormControl('')
   })
 
   data = [{
@@ -930,8 +930,13 @@ export class IndexComponent implements OnInit {
 
   find(){
     //lat&long S(W) == - && S(W) != +
+    //this.deforestCoordinates.getRawValue().zoneMin = this.deforestCoordinates.getRawValue().zoneMin! == null?0:this.deforestCoordinates.getRawValue().zoneMin
+    
+
     if(this.deforestCoordinates.valid){
-      let result = this.deforestCoordinates.value
+      let result = this.deforestCoordinates.value;
+      result.zoneGr = result.zoneGr==null?"0":result.zoneGr
+      result.zoneMin = result.zoneMin==null?"0":result.zoneMin
       this.resultSend = this.data.filter((i:any,arr)=>{
         if(i.latGr <= (Number.parseFloat(result.latGr!) + Number.parseFloat(result.zoneGr!)) && i.latGr >= (Number.parseFloat(result.latGr!) - Number.parseFloat(result.zoneGr!)) 
         && i.lonGr <= (Number.parseFloat(result.lonGr!) + Number.parseFloat(result.zoneGr!)) && i.lonGr >= (Number.parseFloat(result.lonGr!) - Number.parseFloat(result.zoneGr!))
